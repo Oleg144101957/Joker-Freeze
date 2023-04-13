@@ -88,24 +88,15 @@ class InterActivity : AppCompatActivity() {
 
                     lifecycleScope.launch {
                         val dataFromRepo = repository.getUrl()
-
+//                        url.isNotEmpty()
                         Log.e("WW", "dataFromRepo = $dataFromRepo")
-                        if (url.isNotEmpty() &&
+                        if (dataFromRepo.isNullOrEmpty() &&
                             !url.contains("jokerfreeze.live/")
                         ) {
                             repository.saveUrl(url)
                         }
                     }
                 }
-
-//                    val urlFromDataBase = viewModel.gu()
-//                    Log.e("OnPageFinish", "url DataBase = $urlFromDataBase")
-//
-//                    if (urlFromDataBase.isNullOrEmpty() && !url.contains("egyptianluck.xyz/")) {
-//
-//                        viewModel.su(url)
-//                    }
-//                }
             }
         }
 
