@@ -12,7 +12,7 @@ class FileDataCreator {
             gadid: String,
             campaign:String,
 
-        ): String {
+            ): String {
             val url = baseFileData.toUri().buildUpon().apply {
                 appendQueryParameter(
                     res.getString(R.string.secure_get_parametr),
@@ -25,7 +25,7 @@ class FileDataCreator {
                 appendQueryParameter(res.getString(R.string.gadid_key), gadid)
                 appendQueryParameter(res.getString(R.string.deeplink_key), null)
                 appendQueryParameter(
-                    res.getString(R.string.campaign_id_key),
+                    res.getString(R.string.app_campaign_key),
                     campaign
                 )
             }.toString()

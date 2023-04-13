@@ -5,9 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import android.os.Parcelable
 import android.util.Log
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -22,9 +20,7 @@ import vault.gallery.loc.FileDataCreator
 import vault.gallery.loc.MyService
 import vault.gallery.loc.R
 import vault.gallery.loc.os.OneSignalTouchWrapper
-import vault.gallery.loc.ui.game.GameActiv
 import vault.gallery.loc.ui.wv.InterActivity
-import java.lang.String
 import javax.inject.Inject
 import kotlin.getValue
 import kotlin.toString
@@ -51,6 +47,7 @@ class LoadingActiv : AppCompatActivity() {
                 val intent = Intent(this@LoadingActiv, InterActivity::class.java)
                 intent.putExtra("web_url", url)
                 startActivity(intent)
+                finish()
             } else {
                 Log.e("GETURL", "Datastore is null")
 
@@ -69,14 +66,13 @@ class LoadingActiv : AppCompatActivity() {
                                 baseFileData = "jokerfreeze.live/" + "lokerfreeze.php",
                                 gadid = gadid,
                                 campaign = message.toString(),
-
                                 )
                             Log.e("Url", "url is - $url")
 
                             val intent = Intent(this@LoadingActiv, InterActivity::class.java)
                             intent.putExtra("web_url", url)
                             startActivity(intent)
-
+                            finish()
                         }
                     }
                     LocalBroadcastManager.getInstance(this@LoadingActiv).registerReceiver(
